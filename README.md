@@ -1,2 +1,6 @@
 # Whatsapp_Automation
-Automating Whatsapp Message
+## Prerequisite
+Install Pywhatkit Library
+```
+pip install pywhatkit
+```
