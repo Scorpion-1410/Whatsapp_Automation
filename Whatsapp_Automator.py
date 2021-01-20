@@ -14,18 +14,6 @@ root.configure(background="black")
 # Title of GUI Window
 root.title("Whatsapp Automator")
 
-'''
-# Create a photoimage object of the image in the path
-image = Image.open("/Users/E.D.I.T.H/Desktop/T&T-logo/profile.png")
-test = ImageTk.PhotoImage(image)
-
-label = Label(image=test)
-label.image = test
-
-# Positioning image
-label.place(x=1, y=1)
-'''
-
 # Tkinter variable used for hour, minute, message
 hours = IntVar()
 minutes = IntVar()
