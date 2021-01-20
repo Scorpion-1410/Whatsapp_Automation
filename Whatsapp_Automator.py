@@ -41,7 +41,7 @@ sndr_pass = StringVar()
 rcvr_mail = StringVar()
 cntnt = StringVar()
 
-# sendwhatmsg_to_personal()
+# function to send Whatsapp msg to personal
 def send_to_personal():
     ph = phno.get()
     cc1 = countrycode.get()
@@ -50,7 +50,7 @@ def send_to_personal():
     root.configure(background="green")
     pywhatkit.sendwhatmsg(ph,text.get(),hours.get(),minutes.get(),wait_time=10)
     
-# mail()
+# function to send Mail
 def mail():
     print(sndr_mail.get())
     print(sndr_pass.get())
@@ -58,23 +58,23 @@ def mail():
     root.configure(background="orange")
     root.configure(title="Mail Sent")
 
-# sendwhatmsg_to_group()
+# function to send Whatsapp msg to group
 def send_to_group():
     pywhatkit.sendwhatmsg_to_group(grp_id.get(),text.get(),hours.get(),minutes.get(),wait_time=10)
     root.configure(background="green")
     root.configure(title="Whatsapp Message Sent To Group")
 
-# wikiSearch()
+# function to Wiki/Terminal Search
 def wikiSearch():
     pywhatkit.info(wiki_search.get())
     root.configure(background="white")
 
-# Play_On_Youtube()
+# function to play first video on Youtube
 def play_on_youtube():
     pywhatkit.playonyt(yt_search.get())
     root.configure(background="red")
 
-# googleSearch()
+# function to Google search
 def googleSearch():
     pywhatkit.search(google_search.get())
     root.configure(background="blue")
