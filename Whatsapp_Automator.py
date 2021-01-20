@@ -256,7 +256,7 @@ generate_link_button.grid(row=10,column=3)
 
 # Button for closing 
 generate_exit_button = Button(root, text="Exit", command=root.destroy, width=7) 
-generate_exit_button.grid(row=9,column=3)
+generate_exit_button.grid(row=10,column=1)
 
 # START THE GUI
 root.mainloop()   
