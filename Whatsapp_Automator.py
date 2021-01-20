@@ -7,7 +7,7 @@ import os
 
 # Creating the GUI Window
 root = Tk() 
-root.geometry('640x290')
+root.geometry('640x300')
 root.resizable(0,0)
 root.configure(background="black")
 
@@ -40,6 +40,9 @@ sndr_mail = StringVar()
 sndr_pass = StringVar()
 rcvr_mail = StringVar()
 cntnt = StringVar()
+
+# Tkinter variable used for Link
+link = StringVar()
 
 # function to send Whatsapp msg to personal
 def send_to_personal():
@@ -78,6 +81,15 @@ def play_on_youtube():
 def googleSearch():
     pywhatkit.search(google_search.get())
     root.configure(background="blue")
+    
+# function to Youtube Downloader
+def downloader():     
+    url =YouTube(str(link.get()))
+    filters = url.streams.filter(progressive=True, file_extension='mp4')
+    filters.get_highest_resolution().download(output_path="path for downloaded file")
+
+    label = Label(root, text = 'Downloaded', width=10)
+    label.grid(row=10,column=2)     
 
 # Label for the country_code Combo Box
 c_label = Label(root, text="Country", width = 10)
@@ -168,7 +180,7 @@ yt_label = Label(root, text="YouTube", width = 10)
 yt_label.grid(row=2,column=2)
 yt_label.configure(background="black",foreground="white")
 
-# Entry box for yt_label
+# Entry box for Youtube Saerch
 yt_entry = Entry(root,textvariable = yt_search)
 yt_entry.grid(row=2,column=3)
 
@@ -181,7 +193,7 @@ google_label = Label(root, text="Google", width = 10)
 google_label.grid(row=4,column=2)
 google_label.configure(background="black",foreground="white")
 
-# Entry box for google_label
+# Entry box for Google Search
 google_entry = Entry(root,textvariable = google_search)
 google_entry.grid(row=4,column=3)
 
@@ -229,9 +241,22 @@ cntnt_entry.grid(row=7,column=3)
 generate_send_mail_button = Button(root, text="Send_Mail",command=mail, width = 10)
 generate_send_mail_button.grid(row=8,column=3)
 
+# Label for Link
+link_label=Label(root, text = 'Link', width=10)
+link_label.grid(row=9,column=2)
+link_label.configure(background="black",foreground="white")
+
+# Entry box for Link
+link_entry = Entry(root, textvariable = link)
+link_entry.grid(row=9,column=3)
+
+# Download Button which will call downloader()
+generate_link_button=Button(root,text = 'Download', command = Downloader, width=7)
+generate_link_button.grid(row=10,column=3)
+
 # Button for closing 
-exit_button = Button(root, text="Exit", command=root.destroy, width=7) 
-exit_button.grid(row=9,column=3)
+generate_exit_button = Button(root, text="Exit", command=root.destroy, width=7) 
+generate_exit_button.grid(row=9,column=3)
 
 # START THE GUI
 root.mainloop()   
