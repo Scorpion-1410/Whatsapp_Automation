@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter.ttk import *
 import pywhatkit
+from pytube import YouTube
 import pywhatkit.mainfunctions
 from PIL import Image, ImageTk
 import os
@@ -59,13 +60,11 @@ def mail():
     print(sndr_pass.get())
     pywhatkit.mainfunctions.sendMail(sndr_mail.get(),sndr_pass.get(),rcvr_mail.get(),cntnt.get())
     root.configure(background="orange")
-    root.configure(title="Mail Sent")
 
 # function to send Whatsapp msg to group
 def send_to_group():
     pywhatkit.sendwhatmsg_to_group(grp_id.get(),text.get(),hours.get(),minutes.get(),wait_time=10)
     root.configure(background="green")
-    root.configure(title="Whatsapp Message Sent To Group")
 
 # function to Wiki/Terminal Search
 def wikiSearch():
@@ -251,7 +250,7 @@ link_entry = Entry(root, textvariable = link)
 link_entry.grid(row=9,column=3)
 
 # Download Button which will call downloader()
-generate_link_button=Button(root,text = 'Download', command = Downloader, width=7)
+generate_link_button=Button(root,text = 'Download', command = downloader, width=7)
 generate_link_button.grid(row=10,column=3)
 
 # Button for closing 
